@@ -48,6 +48,17 @@
           
           </div>
 
+          <div class="mb-3">
+            <label for="formGroupExampleInput2" class="form-label">Tipo:</label>
+            <select class="form-select" aria-label="Default select example" name="type_id">
+              <option selected>seleziona il tipo di progetto</option>
+              @foreach ($types as $type)
+                <option value="{{$type->id}}">{{$type->title}}</option>  
+              @endforeach
+            </select>
+          
+          </div>
+
           <input type="submit">
     </form>
     <!--/form-->

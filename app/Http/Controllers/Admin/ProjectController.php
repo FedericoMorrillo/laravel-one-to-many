@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Project;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
-
+use App\Models\Type;
 
 class ProjectController extends Controller
 {
@@ -24,7 +24,8 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('Admin.Project.create');
+        $types = Type::all();
+        return view('Admin.Project.create', compact('types'));
     }
 
     /**
@@ -41,6 +42,8 @@ class ProjectController extends Controller
         $project->description = $data['description'];
         $project->code = $data['code'];
         $project->last_commit = $data['last_commit'];
+        $project->type_id = $data['type_id'];
+
 
         //salviamo i dati
         $project->save();
@@ -63,8 +66,10 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
+        $types = Type::all();
+
         // mostriamo la pagina edit.blade.php 
-        return view('admin.project.edit', compact('project'));
+        return view('admin.project.edit', compact('project', 'types'));
     }
 
     /**
@@ -80,6 +85,7 @@ class ProjectController extends Controller
         $project->description = $data['description'];
         $project->code = $data['code'];
         $project->last_commit = $data['last_commit'];
+        $project->type_id = $data['type_id'];
 
         //salviamo i dati
         $project->save();

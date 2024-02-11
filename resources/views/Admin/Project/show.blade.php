@@ -35,6 +35,7 @@
         <div>{{$project->type->title}}</div>
     </div>
     
+    
 </div>
 <!--/linguaggio e ultimo commit-->
 <button class="mt-5 fm-btn">
