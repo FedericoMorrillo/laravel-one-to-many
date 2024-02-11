@@ -17,7 +17,7 @@ return new class extends Migration
 
             $table->foreign('type_id')
                 ->references('id')
-                ->on('types');
+                ->on('types')->nullOnDelete();
         });
     }
 
@@ -26,7 +26,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::create('projects', function (Blueprint $table) {
+        Schema::table('projects', function (Blueprint $table) {
             $table->dropForeign('project_type_id_foreign');
             $table->dropColumn('type_id');
         });

@@ -30,6 +30,10 @@
         <strong class="me-1">Ultimo commit</strong>
         <div>{{$project->last_commit}}</div>
     </div>
+    <div class="d-flex">
+        <strong class="me-1">Tipo</strong>
+        <div>{{$project->type->title}}</div>
+    </div>
     
 </div>
 <!--/linguaggio e ultimo commit-->

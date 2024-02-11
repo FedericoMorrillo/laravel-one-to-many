@@ -41,18 +41,30 @@
                         <div>{{$project->last_commit}}</div>
                     </div>
                 </div>
-                <!--destroy-->
-                <form class=" m-0 d-flex justify-content-center" action="{{route('admin.project.destroy', $project->id)}}" method="POST">
-                    @csrf
-
-                    <!--richiamiamo il metodo-->
-                    @method('DELETE')
-                    <button class="fm-btn text-white">
-                        Elimina
-                    </button>
-                </form>
-                <!--/destroy-->
                 <!--/linguaggio e ultimo commit-->
+                <div class=" d-flex justify-content-between">
+
+                    <div>
+                        <strong class="me-1">Tipo:</strong> 
+                        <div>{{$project->type->title}}</div>
+                    </div>
+
+                    <!--destroy-->
+                    <form class=" m-0 d-flex justify-content-center" action="{{route('admin.project.destroy', $project->id)}}" method="POST">
+                        @csrf
+
+                        <!--richiamiamo il metodo-->
+                        @method('DELETE')
+                        <button class="fm-btn text-white">
+                            Elimina
+                        </button>
+                    </form>
+                    <!--/destroy-->
+                    
+                </div>
+                
+                
+                
             </div>
             <!--/card-->
         @endforeach

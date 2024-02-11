@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProjectController;
+use App\Http\Controllers\Admin\TypeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,6 +31,7 @@ Route::middleware(['auth', 'verified'])
             ->name('dashboard');
 
         Route::resource('project', ProjectController::class);
+        Route::resource('type', TypeController::class);
 
         // Route::get('/federico', function () {
         //     return view('dashboard');
